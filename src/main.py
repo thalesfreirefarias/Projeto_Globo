@@ -28,7 +28,14 @@ clientes["data_cadastro"] = pd.to_datetime(
 
 clientes["data_cadastro"] = clientes["data_cadastro"].dt.strftime("%Y-%m-%d")
 
+print(f"Quantidade de clientes antes da limpeza: {len(clientes)}")
+
+print("\nValores nulos encontrados:")
+print(clientes.isnull().sum())
+
 clientes = clientes.dropna()
+
+print(f"\nQuantidade de clientes após a limpeza: {len(clientes)}")
 
 # ======================================
 # VALIDAÇÃO
