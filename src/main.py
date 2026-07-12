@@ -14,7 +14,7 @@ with open("raw_data/alugueis.json", "r", encoding="utf-8") as arquivo:
 alugueis = pd.DataFrame(alugueis)
 
 # ======================================
-# LIMPEZA DOS CLIENTES
+# LIMPEZA DOS DADOS
 # ======================================
 
 clientes["email"] = clientes["email"].str.lower()
@@ -37,8 +37,40 @@ clientes = clientes.dropna()
 
 print(f"\nQuantidade de clientes após a limpeza: {len(clientes)}")
 
-# ======================================
-# VALIDAÇÃO
-# ======================================
 
-print(clientes.head())
+filtro = itens_aluguel[itens_aluguel["quantidade"] <= 0].index
+
+itens_aluguel = itens_aluguel.drop(filtro)
+
+# Verifica produtos sem nome
+produtos_sem_nome = itens_aluguel["nome_produto"].isnull()
+
+print("Produtos sem nome:")
+print(itens_aluguel[produtos_sem_nome])
+
+itens_aluguel["nome_produto"] = itens_aluguel["nome_produto"].fillna(
+    "Produto não informado"
+)
+
+print(itens_aluguel[itens_aluguel["nome_produto"] == "Produto não informado"])
+
+# ======================================
+# EXPORTAÇÃO DOS DADOS
+# ======================================
+clientes.to_excel(
+    "processed_data/clientes_limpo.xlsx",
+    index=False
+)
+
+alugueis.to_excel(
+    "processed_data/alugueis_limpo.xlsx",
+    index=False
+)
+
+itens_aluguel.to_excel(
+    "processed_data/itens_aluguel_limpo.xlsx",
+    index=False
+)
+
+print("Arquivos exportados com sucesso!")
+
