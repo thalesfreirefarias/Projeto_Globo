@@ -1,0 +1,9 @@
+id_cliente,nome,email,cidade,data_cadastro
+1.0,João Silva,Joao.Silva@Gmail.com,Nova Iguaçu,15/04/2026
+2.0,Maria Santos,maria.santos@outlook.com,Rio de Janeiro,2026-03-22
+3.0,Carlos Souza,CARLOS.SOUZA@YAHOO.COM,Duque de Caxias,02/05/2026
+4.0,Ana Oliveira,ana.oliveira@gmail.com,Belford Roxo,2026-01-15
+5.0,Pedro Rocha,PedrinhoR@hotmail.com,São João de Meriti,28/02/2026
+6.0,Lucas Almeida,lucas.almeida@gmail.com,Nova Iguaçu,2026-05-12
+7.0,Juliana Lima,Ju.Lima@live.com,Rio de Janeiro,19/03/2026
+,Cadastro Incompleto,teste@invalido.com,Nilópolis,2026-04-01
