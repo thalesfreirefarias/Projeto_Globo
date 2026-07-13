@@ -1,8 +1,6 @@
 # Projeto_Globo
-Projeto Thales para A empresa fictícia Festa &amp; Cia
+Projeto Thales para A empresa fictícia Festa & Cia
 
-
-README - Projeto ETL Festa & Cia
 
 Sobre o projeto
 
@@ -37,9 +35,9 @@ Etapas do processo
 
 Consultas SQL
 
-Questão 8: Receita total dos aluguéis concluídos.
-Questão 9: Três cidades com maior número de aluguéis.
-Questão 10: Produto mais alugado no último mês.
+Receita total dos aluguéis concluídos.
+Três cidades com maior número de aluguéis.
+Produto mais alugado no último mês.
 
 Resultados:
 - Receita total: R$ 1.100,00
@@ -64,7 +62,17 @@ Conhecimentos aplicados
 
 ETL, Pandas, SQLite, SQL, INNER JOIN, GROUP BY, SUM, COUNT, ORDER BY, LIMIT, Git e GitHub.
 
-Autor
+---
 
-Thales Freire Cavalcante Farias
-Projeto desenvolvido para fins de estudo e avaliação técnica.
+## 🤝 Author
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/thalesfreirefarias/" target="_blank">
+        <img src="docs/grecia.jpg" width="100" alt="Thales Farias"/><br>
+        <sub><b>Thales Farias</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
