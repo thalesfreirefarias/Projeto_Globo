@@ -1,5 +1,6 @@
 import pandas as pd
 import json
+import sqlite3
 
 # ======================================
 # EXTRAÇÃO DOS DADOS
@@ -74,3 +75,16 @@ itens_aluguel.to_excel(
 
 print("Arquivos exportados com sucesso!")
 
+# ==========================================
+# CARGA DOS DADOS NO SQLITE
+# ==========================================
+
+conexao = sqlite3.connect("raw_data/festa_cia.db")
+
+clientes.to_sql("clientes", conexao, if_exists="replace", index=False)
+itens_aluguel.to_sql("itens_aluguel", conexao, if_exists="replace", index=False)
+alugueis.to_sql("alugueis", conexao, if_exists="replace", index=False)
+
+conexao.close()
+
+print("Banco SQLite criado com sucesso!")
