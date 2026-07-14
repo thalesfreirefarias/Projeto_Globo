@@ -43,7 +43,7 @@ filtro = itens_aluguel[itens_aluguel["quantidade"] <= 0].index
 
 itens_aluguel = itens_aluguel.drop(filtro)
 
-# Verifica produtos sem nome
+
 produtos_sem_nome = itens_aluguel["nome_produto"].isnull()
 
 print("Produtos sem nome:")
@@ -88,3 +88,21 @@ alugueis.to_sql("alugueis", conexao, if_exists="replace", index=False)
 conexao.close()
 
 print("Banco SQLite criado com sucesso!")
+
+# ==========================================
+# VISUALIZAÇÃO DOS DADOS PROCESSADOS
+# ==========================================
+
+print("\nArquivos exportados com sucesso!")
+print("Banco SQLite criado com sucesso!")
+
+print("\nVisualização dos dados processados:\n")
+
+print("Clientes")
+print(clientes.head().to_string(index=False))
+
+print("\nAluguéis")
+print(alugueis.head().to_string(index=False))
+
+print("\nItens de aluguel")
+print(itens_aluguel.head().to_string(index=False))
