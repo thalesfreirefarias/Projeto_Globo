@@ -18,26 +18,25 @@ Tecnologias utilizadas
 Estrutura do projeto
 
 Projeto_Globo
-│
-├ ── raw_data/
-│   ├── clientes.csv
-│   ├── alugueis.json
-│   └── itens_aluguel.csv
-|   └── festa_cia.db
-│
-├── processed_data/
-│   ├── clientes_limpo.xlsx
-│   ├── alugueis_limpo.xlsx
-│   ├── itens_aluguel_limpo.xlsx
-│   
-│
-├── src/
-│   └── main.py
-│
-├── queries.sql
-├── requirements.txt
-├── README.md
-└── DESCRICAO_DESAFIO.md
+
+raw_data/
+   ── clientes.csv
+   ── alugueis.json
+   ── itens_aluguel.csv
+   ── festa_cia.db
+
+processed_data/
+    ── clientes_limpo.xlsx
+    ── alugueis_limpo.xlsx
+    ── itens_aluguel_limpo.xlsx
+
+src/
+    ── main.py
+
+ ── queries.sql
+ ── requirements.txt
+ ── README.md
+ ── DESCRICAO_DESAFIO.md
 
 ## Modelagem dos Dados (Star Schema)
 
