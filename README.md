@@ -19,7 +19,7 @@ Estrutura do projeto
 
 Projeto_Globo
 │
-├── raw_data/
+├ ── raw_data/
 │   ├── clientes.csv
 │   ├── alugueis.json
 │   └── itens_aluguel.csv
