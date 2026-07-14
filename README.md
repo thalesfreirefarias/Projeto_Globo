@@ -42,31 +42,51 @@ src/
 
 Foi proposta uma modelagem dimensional simples composta por:
 
-### Tabela Fato
+Tabela Fato
 
-**Fato_Alugueis**
+Fato_Itens_Aluguel
 
-- id_aluguel
-- id_cliente
-- id_produto
-- quantidade
-- valor_unitario
-- data_evento
+O que aconteceu?
 
-### Dimensão Cliente
+id_aluguel
+id_cliente
+id_produto
+nome_produto
+quantidade
+valor_unitario
+Dimensão Cliente
 
-- id_cliente
-- nome
-- email
-- cidade
-- data_cadastro
+Quem realizou o aluguel?
 
-### Dimensão Produto
+id_cliente
+nome
+email
+cidade
+data_cadastro
+Dimensão Aluguéis
 
-- id_produto
-- nome_produto
+Como foi realizado o aluguel?
 
-Essa estrutura facilita consultas analíticas como receita, quantidade de aluguéis e produtos mais alugados.
+id_aluguel
+data_evento
+status_pagamento
+Relacionamentos
+A tabela Fato_Itens_Aluguel se conecta à Dimensão Cliente pelo campo id_cliente.
+A tabela Fato_Itens_Aluguel se conecta à Dimensão Aluguéis pelo campo id_aluguel.
+             Dim_Clientes
+                  |
+             id_cliente
+                  |
+         Fato_Itens_Aluguel
+                  |
+             id_aluguel
+                  |
+             Dim_Alugueis
+
+O campo id_cliente já existe nos dados de origem, dentro da tabela alugueis. Para montar o Star Schema, ele apenas é levado para a tabela fato durante a transformação dos dados.
+
+Essa é uma alteração pequena e necessária para que o modelo seja realmente um Star Schema, pois as duas dimensões passam a se conectar diretamente à tabela fato.
+
 
 ## Decisões de Implementação
 
