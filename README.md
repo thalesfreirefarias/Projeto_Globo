@@ -1,10 +1,9 @@
 # Projeto_Globo
-Projeto Thales para A empresa fictícia Festa & Cia
+Pipeline de ETL desenvolvido em Python para processamento de dados da empresa fictícia Festa & Cia.
 
+## Objetivo
 
-Sobre o projeto
-
-Este projeto foi desenvolvido como parte de um case técnico para Engenharia de Dados Júnior. O objetivo foi realizar um processo de ETL a partir de arquivos CSV e JSON, tratando os dados, carregando-os em um banco SQLite e respondendo perguntas de negócio utilizando SQL.
+Desenvolver um pipeline de ETL capaz de extrair dados em diferentes formatos (CSV e JSON), realizar a limpeza e padronização das informações, gerar arquivos analíticos em Excel, carregar os dados em um banco SQLite e responder perguntas de negócio utilizando SQL.
 
 Tecnologias utilizadas
 
@@ -18,20 +17,68 @@ Tecnologias utilizadas
 
 Estrutura do projeto
 
-projeto-festa-cia/
+Projeto_Globo
+│
 ├── raw_data/
+│   ├── clientes.csv
+│   ├── alugueis.json
+│   └── itens_aluguel.csv
+|   └── festa_cia.db
+│
+├── processed_data/
+│   ├── clientes_limpo.xlsx
+│   ├── alugueis_limpo.xlsx
+│   ├── itens_aluguel_limpo.xlsx
+│   
+│
 ├── src/
+│   └── main.py
+│
 ├── queries.sql
 ├── requirements.txt
-├── .gitignore
-└── README.md
+├── README.md
+└── DESCRICAO_DESAFIO.md
 
-Etapas do processo
+## Modelagem dos Dados (Star Schema)
 
-1. Extração dos arquivos CSV e JSON.
-2. Limpeza e padronização dos dados.
-3. Carga dos dados em um banco SQLite (festa_cia.db).
-4. Consultas SQL para análise dos dados.
+Foi proposta uma modelagem dimensional simples composta por:
+
+### Tabela Fato
+
+**Fato_Alugueis**
+
+- id_aluguel
+- id_cliente
+- id_produto
+- quantidade
+- valor_unitario
+- data_evento
+
+### Dimensão Cliente
+
+- id_cliente
+- nome
+- email
+- cidade
+- data_cadastro
+
+### Dimensão Produto
+
+- id_produto
+- nome_produto
+
+Essa estrutura facilita consultas analíticas como receita, quantidade de aluguéis e produtos mais alugados.
+
+## Decisões de Implementação
+
+Durante o desenvolvimento foram adotadas as seguintes decisões:
+
+- Padronização dos e-mails em letras minúsculas;
+- Conversão das datas para o formato YYYY-MM-DD;
+- Remoção de clientes com informações incompletas;
+- Exclusão de itens com quantidade menor ou igual a zero;
+- Substituição de nomes de produtos ausentes por "Produto não informado";
+- Utilização do SQLite para execução das consultas analíticas.
 
 Consultas SQL
 
@@ -39,10 +86,18 @@ Receita total dos aluguéis concluídos.
 Três cidades com maior número de aluguéis.
 Produto mais alugado no último mês.
 
-Resultados:
-- Receita total: R$ 1.100,00
-- Produto mais alugado: Cama Elástica Grande
-- Quantidade: 2 unidades.
+## Resultados Obtidos
+
+- Receita total dos aluguéis concluídos: R$ 1.100,00
+- Top 3 cidades com maior número de aluguéis:
+   - Rio de Janeiro
+   - Nova Iguaçu
+   - Belford Roxo
+- Produto mais alugado no último mês:
+   - Cama Elástica Grande
+   - Quantidade: 2
+ 
+
 
 Como executar
 
